@@ -1,0 +1,6 @@
+<RelativeLayout android:id="@+id/RelativeLayout01" android:layout_width="fill_parent" android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android"><ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/user_update" android:id="@+id/UpdaterIcon"></ImageView>
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@+id/UpdaterName" android:id="@+id/UpdateContent" android:text="Update content" android:layout_toRightOf="@+id/UpdaterIcon"></TextView><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/UpdaterName" android:textStyle="bold" android:text="Updater Name" android:layout_toRightOf="@+id/UpdaterIcon"></TextView>
+
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@+id/UpdaterName" android:id="@+id/atLabel" android:text=" at "></TextView>
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@+id/atLabel" android:id="@+id/updateTime" android:text="01/01/01 01:01:01"></TextView>
+</RelativeLayout>

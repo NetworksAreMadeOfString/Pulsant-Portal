@@ -1,0 +1,24 @@
+<RelativeLayout android:id="@+id/RelativeLayout01" android:layout_width="fill_parent" android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+<TextView android:layout_height="wrap_content"
+	                android:layout_width="wrap_content" 
+	                android:text="Name" 
+	                android:typeface="sans" 
+	                android:textSize="16sp" 
+	                android:textStyle="bold" 
+	                android:id="@+id/coloServerCode">
+</TextView>
+	        
+     
+
+
+<TextView android:layout_width="wrap_content" 
+                			android:layout_height="wrap_content" 
+                			android:textSize="13sp" 
+                			android:text="0" 
+                			android:id="@+id/coloBandwidth" android:layout_toRightOf="@+id/coloServerCode" android:paddingTop="2px" android:paddingLeft="20px">
+                </TextView>
+    
+
+<ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/down" android:layout_toLeftOf="@+id/ColoArrowRight" android:id="@+id/ColoStateIcon" android:layout_marginRight="40px"></ImageView>
+<ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/arrow_right" android:id="@+id/ColoArrowRight" android:layout_alignParentRight="true"></ImageView>
+</RelativeLayout>

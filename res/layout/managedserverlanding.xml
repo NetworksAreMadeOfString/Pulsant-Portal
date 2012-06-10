@@ -1,0 +1,13 @@
+<RelativeLayout android:id="@+id/RelativeLayout01" android:layout_width="fill_parent" android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" android:background="#333333">
+	<RelativeLayout android:layout_height="wrap_content" android:id="@+id/RelativeLayout02" android:layout_width="fill_parent">
+		<ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/TitleImage" android:layout_centerHorizontal="true" android:src="@drawable/logo_smaller"></ImageView>
+		<ImageView android:layout_height="wrap_content" android:src="@drawable/line" android:layout_width="fill_parent" android:id="@+id/LineImage" android:layout_below="@+id/TitleImage"></ImageView>
+		<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/ErrorMessageText" android:text="Loading....." android:layout_below="@+id/LineImage"></TextView>
+	
+</RelativeLayout>
+
+<TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_below="@+id/RelativeLayout02" android:id="@+id/SubtitleTextView" android:textColor="#FFFFFF" android:textStyle="bold" android:text="OS  Server Code            Monitored   State"></TextView>
+
+<ListView android:layout_width="fill_parent" android:id="@+id/ManagedServerList" android:layout_height="fill_parent" android:layout_below="@+id/SubtitleTextView"></ListView>
+
+</RelativeLayout>

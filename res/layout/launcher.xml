@@ -1,0 +1,25 @@
+<RelativeLayout android:id="@+id/RelativeLayout01" android:layout_width="fill_parent" android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" android:background="#333333"><ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:src="@drawable/footercircles" android:layout_alignParentRight="true" android:id="@+id/CirclesLogo"></ImageView>
+<CheckBox android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/RememberDetailsCheckBox" android:text="Remember Details" android:layout_alignParentBottom="true"></CheckBox><ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/ImageView02" android:src="@drawable/logo" android:layout_alignParentTop="true" android:paddingBottom="25px" android:layout_centerHorizontal="true"></ImageView>
+<EditText android:layout_below="@+id/ImageView02" android:layout_height="wrap_content" android:id="@+id/AcctCodeInput" android:hint="Account Code" android:layout_centerHorizontal="true" android:inputType="text|textCapCharacters" android:layout_width="fill_parent" android:layout_marginLeft="40px" android:layout_marginRight="40px"></EditText>
+<EditText android:layout_below="@+id/AcctCodeInput" android:layout_height="wrap_content" android:layout_centerHorizontal="true" android:id="@+id/EmailInput" android:hint="Email Address" android:inputType="textEmailAddress" android:lines="1" android:maxLines="1" android:layout_marginLeft="40px" android:layout_marginRight="40px" android:layout_width="fill_parent"></EditText>
+<EditText android:layout_below="@+id/EmailInput" android:layout_height="wrap_content" android:layout_centerHorizontal="true" android:id="@+id/PasswordInput" android:hint="Password" android:inputType="textPassword" android:layout_marginLeft="40px" android:layout_marginRight="40px" android:layout_width="fill_parent"></EditText>
+<Button android:layout_width="wrap_content" 
+android:layout_below="@+id/PasswordInput" 
+android:layout_height="wrap_content" 
+android:id="@+id/LoginButton" 
+android:text="Login to Portal" 
+android:layout_marginTop="20px" android:layout_alignParentRight="true" android:layout_marginRight="40px"></Button>
+
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_centerHorizontal="true" android:id="@+id/PhoneNumber" android:text="24/7 Support: 0845 12 40 247" android:autoLink="phone" android:layout_marginTop="20px" android:layout_above="@+id/CirclesLogo"></TextView>
+
+<TextView
+    android:id="@+id/DisclaimerText"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/LoginButton"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="16dp"
+    android:text="This is an unofficial app. Pulsant and the Pulsant logos are the trademarks of Pulsant Ltd. The author is not affiliated with Pulsant."
+    android:textAppearance="?android:attr/textAppearanceSmall" android:textSize="4pt" android:gravity="center_horizontal"/>
+
+</RelativeLayout>

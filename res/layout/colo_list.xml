@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:id="@+id/LinearLayout01"
+        android:layout_width="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android"
+        android:paddingLeft="10sp" android:paddingRight="10sp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" android:paddingTop="2sp">
+        
+        <LinearLayout android:id="@+id/LinearLayout02"
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent">
+	        <TextView android:layout_height="wrap_content"
+	                android:layout_width="wrap_content" 
+	                android:text="Name" 
+	                android:typeface="sans" 
+	                android:textSize="16sp" 
+	                android:textStyle="bold" 
+	                android:id="@+id/coloServerCode">
+	        </TextView>
+	        <TextView android:layout_width="wrap_content" 
+	                			android:layout_height="wrap_content" 
+	                			android:textSize="13sp" 
+	                			android:layout_weight="1" 
+	                			android:text="( UNKNOWN )" 
+	                			android:id="@+id/coloState" android:layout_marginLeft="20px">
+	       	</TextView>
+	    </LinearLayout> 
+        <LinearLayout android:id="@+id/LinearLayout03"
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent">
+                <TextView android:id="@+id/TextView01" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:textStyle="bold"
+                        android:textSize="13sp" android:text="Facility:"></TextView>
+                <TextView android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="Number"
+                        android:textSize="13sp" android:id="@+id/coloFacility" android:layout_marginLeft="10px"></TextView>
+        </LinearLayout> 
+        <LinearLayout android:id="@+id/LinearLayout04"
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent">
+                <TextView android:id="@+id/TextView01" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:textStyle="bold"
+                        android:textSize="13sp" android:text="Bandwidth: "></TextView>
+                <TextView android:layout_width="wrap_content" 
+                			android:layout_height="wrap_content" 
+                			android:textSize="13sp" 
+                			android:layout_weight="1" 
+                			android:text="0" 
+                			android:id="@+id/coloBandwidth">
+                </TextView>
+                
+        </LinearLayout> 
+
+</LinearLayout>

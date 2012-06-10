@@ -1,0 +1,13 @@
+<RelativeLayout android:id="@+id/RelativeLayout01" android:layout_width="fill_parent" android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" android:background="#333333">
+	<RelativeLayout android:layout_height="wrap_content" android:id="@+id/RelativeLayout02" android:layout_width="fill_parent">
+		<ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/TitleImage" android:src="@drawable/logo" android:layout_centerHorizontal="true"></ImageView>
+		<ImageView android:layout_height="wrap_content" android:src="@drawable/line" android:id="@+id/LineImage" android:layout_below="@+id/TitleImage" android:layout_centerHorizontal="true" android:layout_width="wrap_content" android:layout_marginBottom="18px"></ImageView>
+		
+	
+</RelativeLayout>
+
+
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@+id/RelativeLayout02" android:textStyle="bold" android:textSize="12pt" android:layout_marginTop="20px" android:id="@+id/AddReplyTitle" android:text="Reply to Ticket:"></TextView>
+<EditText android:lines="8" android:id="@+id/Message" android:hint="Ticket Details" android:layout_marginTop="20px" android:layout_height="wrap_content" android:gravity="top" android:layout_below="@+id/AddReplyTitle" android:layout_marginLeft="20px" android:layout_marginRight="20px" android:layout_width="fill_parent"></EditText>
+<Button android:layout_width="wrap_content" android:layout_below="@+id/Message" android:layout_height="wrap_content" android:layout_alignRight="@+id/Message" android:layout_marginTop="20px" android:id="@+id/AddReplyButton" android:text="Add Reply"></Button>
+</RelativeLayout>

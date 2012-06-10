@@ -1,0 +1,6 @@
+<RelativeLayout android:id="@+id/RelativeLayout01" android:layout_width="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" android:layout_height="wrap_content">
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20px" android:textStyle="bold" android:id="@+id/InvoiceReference" android:text="ref#" android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="20/09/1983" android:id="@+id/InvoiceDate" android:layout_below="@+id/InvoiceReference" android:visibility="visible"></TextView>
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:paddingLeft="20px" android:layout_below="@+id/InvoiceReference" android:text="£00.00" android:id="@+id/InvoiceAmount" android:layout_toRightOf="@+id/InvoiceDate"></TextView>
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ReferenceDetails" android:layout_below="@+id/InvoiceDate" android:id="@+id/InvoiceDetails" android:textAppearance="?android:attr/textAppearanceSmall"></TextView>
+</RelativeLayout>

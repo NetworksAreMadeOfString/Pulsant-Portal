@@ -1,0 +1,30 @@
+<RelativeLayout android:id="@+id/RelativeLayout01" android:layout_width="fill_parent" android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" android:background="#333333">
+	<RelativeLayout android:layout_height="wrap_content" android:id="@+id/RelativeLayout02" android:layout_width="fill_parent">
+		<ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/TitleImage" android:src="@drawable/logo" android:layout_centerHorizontal="true"></ImageView>
+		<ImageView android:layout_height="wrap_content" android:src="@drawable/line" android:id="@+id/LineImage" android:layout_below="@+id/TitleImage" android:layout_centerHorizontal="true" android:layout_width="wrap_content" android:layout_marginBottom="18px"></ImageView>
+		
+		<ImageView android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/SoftwareImage" android:src="@drawable/hd_linux" android:layout_below="@+id/LineImage"></ImageView>
+		
+		
+		<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Loading....." android:layout_below="@+id/LineImage" android:layout_toRightOf="@+id/SoftwareImage" android:textSize="24px" android:layout_marginTop="5px" android:id="@+id/DEDCode" android:layout_alignTop="@+id/SoftwareImage" android:layout_alignBottom="@+id/SoftwareImage"></TextView>
+	
+</RelativeLayout>
+
+<TextView android:layout_below="@+id/RelativeLayout02" android:layout_height="wrap_content" android:id="@+id/PrimaryIPLabel" android:text="Primary IP:" android:paddingTop="10px" android:textStyle="bold" android:layout_width="140px"></TextView>
+<TextView android:layout_below="@+id/RelativeLayout02" android:layout_height="wrap_content" android:layout_toRightOf="@+id/PrimaryIPLabel" android:layout_width="wrap_content" android:id="@+id/IPTV" android:paddingTop="10px" android:text="0.0.0.0" android:paddingLeft="4px"></TextView><TextView android:layout_below="@+id/PrimaryIPLabel" android:layout_height="wrap_content" android:id="@+id/DescriptionLabel" android:text="Description:" android:textStyle="bold" android:layout_width="140px"></TextView>
+
+
+<TextView android:layout_below="@+id/PrimaryIPLabel" android:layout_height="wrap_content" android:layout_toRightOf="@+id/DescriptionLabel" android:text="......" android:layout_width="fill_parent" android:layout_marginRight="5px" android:id="@+id/DescTV" android:paddingLeft="4px"></TextView>
+<TextView android:layout_below="@+id/DescTV" android:layout_height="wrap_content" android:id="@+id/FacilityLabel" android:text="Facility:" android:textStyle="bold" android:layout_width="140px"></TextView>
+<TextView android:layout_below="@+id/FacilityLabel" android:layout_height="wrap_content" android:id="@+id/StatusLabel" android:text="Server Status:" android:textStyle="bold" android:layout_width="140px"></TextView><ImageView android:layout_below="@+id/StatusLabel" android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/SplitterImage" android:paddingTop="6px" android:paddingBottom="6px" android:src="@drawable/seperator"></ImageView>
+
+<TextView android:layout_below="@+id/SplitterImage" android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/BandwidthLabel" android:textStyle="bold" android:text="Bandwidth Utilisation:"></TextView><TextView android:layout_below="@+id/BandwidthLabel" android:layout_height="wrap_content" android:layout_width="wrap_content" android:layout_alignParentRight="true" android:id="@+id/BandwidthTV" android:text="0% - 0Gb of 99999Tb"></TextView><TextView android:layout_below="@+id/BandwidthTV" android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/MonitoringLabel" android:text="Monitoring Enabled:" android:textStyle="bold"></TextView><TextView android:layout_below="@+id/BandwidthTV" android:layout_height="wrap_content" android:layout_toRightOf="@+id/MonitoringLabel" android:layout_width="wrap_content" android:id="@+id/MonitorEnabledTV" android:text="Yes" android:textColor="#33CC00" android:paddingLeft="8px"></TextView><TextView android:layout_below="@+id/FacilityLabel" android:layout_height="wrap_content" android:layout_toRightOf="@+id/StatusLabel" android:layout_width="wrap_content" android:id="@+id/StatusTV" android:text="UP" android:textColor="#33CC00" android:paddingLeft="4px"></TextView><TextView android:layout_below="@+id/DescTV" android:layout_height="wrap_content" android:layout_toRightOf="@+id/FacilityLabel" android:layout_width="wrap_content" android:id="@+id/FacilityTV" android:text="CAD1" android:paddingLeft="4px"></TextView>
+
+
+
+
+
+
+
+
+</RelativeLayout>

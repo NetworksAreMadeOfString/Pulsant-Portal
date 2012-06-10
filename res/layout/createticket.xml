@@ -1,0 +1,14 @@
+<RelativeLayout android:id="@+id/RelativeLayout01" android:layout_width="fill_parent" android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" android:background="#333333">
+	<RelativeLayout android:layout_height="wrap_content" android:id="@+id/RelativeLayout02" android:layout_width="fill_parent">
+		<ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/TitleImage" android:src="@drawable/logo" android:layout_centerHorizontal="true"></ImageView>
+		<ImageView android:layout_height="wrap_content" android:src="@drawable/line" android:id="@+id/LineImage" android:layout_below="@+id/TitleImage" android:layout_centerHorizontal="true" android:layout_width="wrap_content" android:layout_marginBottom="18px"></ImageView>
+		
+	
+</RelativeLayout>
+
+
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@+id/RelativeLayout02" android:id="@+id/CreateTicketTitle" android:text="Create Ticket:" android:textStyle="bold" android:textSize="12pt" android:layout_marginTop="20px"></TextView>
+<EditText android:layout_below="@+id/CreateTicketTitle" android:layout_height="wrap_content" android:layout_alignLeft="@+id/CreateTicketTitle" android:layout_marginLeft="20px" android:layout_marginRight="20px" android:layout_width="fill_parent" android:hint="Ticket Subject" android:id="@+id/Subject" android:layout_marginTop="20px"></EditText>
+<EditText android:layout_width="wrap_content" android:layout_below="@+id/Subject" android:layout_alignLeft="@+id/Subject" android:layout_alignRight="@+id/Subject" android:lines="8" android:id="@+id/Message" android:hint="Ticket Details" android:layout_marginTop="20px" android:layout_height="wrap_content" android:gravity="top"></EditText>
+<Button android:layout_width="wrap_content" android:layout_below="@+id/Message" android:layout_height="wrap_content" android:layout_alignRight="@+id/Message" android:id="@+id/CreateTicketButton" android:text="Create Ticket" android:layout_marginTop="20px"></Button>
+</RelativeLayout>

@@ -1,0 +1,6 @@
+<RelativeLayout android:id="@+id/RelativeLayout01" android:layout_width="fill_parent" android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" android:background="#333333">
+<ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/TitleImage" android:layout_centerHorizontal="true" android:src="@drawable/logo_smaller"></ImageView>
+<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@+id/TitleImage" android:id="@+id/ErrorMessageText" android:text="Loading......"></TextView>
+<ListView android:layout_below="@+id/ErrorMessageText" android:layout_width="fill_parent" android:id="@+id/TicketUpdatesList" android:layout_height="fill_parent" android:layout_marginBottom="60px"></ListView>
+<Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignRight="@+id/TicketUpdatesList" android:layout_alignParentBottom="true" android:layout_alignParentRight="true" android:layout_marginRight="20px" android:id="@+id/AddReplyButton" android:text="Add a Reply"></Button>
+</RelativeLayout>

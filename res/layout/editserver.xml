@@ -1,0 +1,19 @@
+<RelativeLayout android:id="@+id/RelativeLayout01" android:layout_width="fill_parent" android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" android:background="#333333">
+	<TextView android:layout_width="140px" android:textStyle="bold" android:id="@+id/DescriptionLabel" android:layout_height="wrap_content" android:text="Description:" android:layout_below="@+id/SoftwareImage"></TextView>
+	<ImageView android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/TitleImage" android:src="@drawable/logo"></ImageView>
+	<ImageView android:layout_marginBottom="18px" android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/LineImage" android:src="@drawable/line"></ImageView>
+	<ImageView android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/SoftwareImage" android:src="@drawable/hd_linux" android:layout_below="@id/TitleImage"></ImageView>
+	<TextView android:layout_width="wrap_content" android:textSize="24px" android:id="@+id/DEDCode" android:layout_height="wrap_content" android:text="Loading....." android:layout_alignTop="@+id/SoftwareImage" android:layout_toRightOf="@+id/SoftwareImage"></TextView>
+	<EditText android:layout_height="wrap_content" android:layout_below="@+id/DescriptionLabel" android:id="@+id/ServerDescEditText" android:layout_width="fill_parent">
+		<requestFocus></requestFocus>
+	</EditText>
+	<Button android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" android:layout_marginBottom="16dp" android:id="@+id/SaveDetails" android:text="Update Portal"></Button>
+
+
+
+
+
+
+
+
+</RelativeLayout>
