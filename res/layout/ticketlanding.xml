@@ -1,6 +1,11 @@
 <RelativeLayout android:id="@+id/RelativeLayout01" android:layout_width="fill_parent" android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android" android:background="#333333">
-<ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/TitleImage" android:layout_centerHorizontal="true" android:src="@drawable/logo_smaller"></ImageView>
-<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@+id/TitleImage" android:id="@+id/ErrorMessageText" android:text="Loading Tickets......"></TextView>
-<ListView android:layout_below="@+id/ErrorMessageText" android:layout_width="fill_parent" android:id="@+id/TicketList" android:layout_height="fill_parent" android:layout_marginBottom="30px"></ListView>
+
+<TextView
+    android:id="@+id/ErrorMessageText"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Loading Tickets......" >
+</TextView>
+<ListView android:layout_below="@+id/ErrorMessageText" android:layout_width="fill_parent" android:id="@+id/TicketList" android:layout_height="fill_parent" android:layout_marginBottom="30px" android:cacheColorHint="#333333"></ListView>
 <TextView android:layout_height="wrap_content" android:layout_width="wrap_content" android:id="@+id/NewTicket" android:autoLink="email" android:text="request@Pulsant.com" android:layout_centerHorizontal="true" android:layout_alignParentBottom="true"></TextView>
 </RelativeLayout>

@@ -1,16 +1,87 @@
-<RelativeLayout android:id="@+id/RelativeLayout01" android:layout_width="fill_parent" android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
-<ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/TitleImage" android:src="@drawable/logo"></ImageView>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout01"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#333333" >
 
+    
 
+    
 
-<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@+id/TitleImage" android:id="@+id/Introtext" android:text="With the Portal App you can view open tickets, check the status of your managed servers or colo cabs and view your CDN statistics."></TextView>
-<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@+id/Introtext" android:inputType="phone" android:id="@+id/IntroPhoneNumber" android:text="24/7 Support: 0870 2523640" android:layout_centerHorizontal="true" android:layout_marginBottom="10px" android:autoLink="phone"></TextView>
-
-<RelativeLayout android:layout_centerHorizontal="true" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@+id/IntroPhoneNumber" android:id="@+id/ButtonHolder">
-<ImageButton android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/ManagedImage" android:layout_centerHorizontal="false" android:layout_alignParentLeft="true" android:layout_marginLeft="20px" android:background="@null" android:src="@drawable/icon"></ImageButton>
-<ImageButton android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/ColoImage" android:layout_centerHorizontal="false"  android:layout_toRightOf="@+id/ManagedImage" android:layout_marginLeft="20px" android:background="@null" android:src="@drawable/icon"></ImageButton>
-<ImageButton android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/TicketImage" android:layout_centerHorizontal="false" android:layout_alignParentLeft="true" android:layout_marginLeft="20px" android:layout_below="@+id/ManagedImage" android:layout_marginTop="20px" android:background="@null" android:src="@drawable/icon"></ImageButton>
-<ImageButton android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/CDNImage" android:layout_centerHorizontal="false"  android:layout_toRightOf="@+id/TicketImage" android:layout_marginLeft="20px" android:layout_below="@+id/ColoImage" android:layout_marginTop="20px" android:background="@null" android:src="@drawable/icon"></ImageButton>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical" android:gravity="center_vertical|center_horizontal">
+        
+		        <LinearLayout
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_alignParentTop="true"
+		        android:layout_centerHorizontal="true"
+		        android:layout_marginTop="32dp" android:id="@+id/buttonRow1" android:gravity="center_horizontal" android:layout_marginBottom="32dp">
+		
+		        <ImageView
+		            android:id="@+id/managedImage"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:src="@drawable/dashboard_managed" android:layout_marginLeft="20dp" android:layout_marginRight="20dp"/>
+		
+		        <ImageView
+		            android:id="@+id/coloImage"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:src="@drawable/dashboard_colocation" android:layout_marginLeft="20dp" android:layout_marginRight="20dp"/>
+		
+		    </LinearLayout>
+		    
+		    <LinearLayout
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_centerHorizontal="true"
+		        android:layout_marginTop="32dp" android:id="@+id/buttonRow2" android:gravity="center_horizontal" android:layout_below="@+id/buttonRow1" android:layout_marginBottom="32dp">
+		
+		        <ImageView
+		            android:id="@+id/cloudImage"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:src="@drawable/dashboard_cloud" android:layout_marginLeft="20dp" android:layout_marginRight="20dp"/>
+		
+		        <ImageView
+		            android:id="@+id/networksImage"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:src="@drawable/dashboard_networks" android:layout_marginLeft="20dp" android:layout_marginRight="20dp"/>
+		
+		    </LinearLayout>
+		    
+		    <LinearLayout
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_centerHorizontal="true"
+		        android:layout_marginTop="32dp" android:id="@+id/buttonRow3" android:gravity="center_horizontal" android:layout_below="@+id/buttonRow2" android:layout_marginBottom="32dp">
+		
+		        <ImageView
+		            android:id="@+id/ticketsImage"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:src="@drawable/dashboard_tickets" android:layout_marginLeft="20dp" android:layout_marginRight="20dp"/>
+		
+		        <ImageView
+		            android:id="@+id/invoicesImage"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:src="@drawable/dashboard_accounts" android:layout_marginLeft="20dp" android:layout_marginRight="20dp"/>
+		
+		    </LinearLayout>
+    </LinearLayout>
+    
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/watermark_small_left" />
 </RelativeLayout>
-
-</RelativeLayout>
+    

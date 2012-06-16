@@ -1,0 +1,85 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout01"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#333333" >
+
+    
+
+    
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical" android:gravity="center_vertical|center_horizontal">
+        
+		        <LinearLayout
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_alignParentTop="true"
+		        android:layout_centerHorizontal="true"
+		        android:layout_marginTop="32dp" android:id="@+id/buttonRow1" android:gravity="center_horizontal" android:layout_marginBottom="32dp">
+		
+		        <ImageView
+		            android:id="@+id/managedImage"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:src="@drawable/dashboard_managed" android:layout_marginLeft="20dp" android:layout_marginRight="20dp"/>
+		
+		        <ImageView
+		            android:id="@+id/coloImage"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:src="@drawable/dashboard_colocation" android:layout_marginLeft="20dp" android:layout_marginRight="20dp"/>
+
+		        <ImageView
+		            android:id="@+id/cloudImage"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_marginLeft="20dp"
+		            android:layout_marginRight="20dp"
+		            android:src="@drawable/dashboard_cloud" />
+		
+		    </LinearLayout>
+		    
+		    <LinearLayout
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_centerHorizontal="true"
+		        android:layout_marginTop="32dp" android:id="@+id/buttonRow2" android:gravity="center_horizontal" android:layout_below="@+id/buttonRow1" android:layout_marginBottom="32dp">
+
+		        <ImageView
+		            android:id="@+id/ticketsImage"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_marginLeft="20dp"
+		            android:layout_marginRight="20dp"
+		            android:src="@drawable/dashboard_tickets" />
+		
+		        <ImageView
+		            android:id="@+id/networksImage"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:src="@drawable/dashboard_networks" android:layout_marginLeft="20dp" android:layout_marginRight="20dp"/>
+
+		        <ImageView
+		            android:id="@+id/invoicesImage"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_marginLeft="20dp"
+		            android:layout_marginRight="20dp"
+		            android:src="@drawable/dashboard_accounts" />
+		
+		    </LinearLayout>
+    </LinearLayout>
+    
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/watermark_small_left" />
+</RelativeLayout>
+    

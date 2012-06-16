@@ -25,7 +25,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.os.Handler;
@@ -33,9 +32,11 @@ import android.os.Message;
 import android.util.Log;
 import android.widget.ListView;
 import android.widget.TextView;
-import net.networksaremadeofstring.pulsant.portal.R;
 
-public class InvoiceLanding extends Activity
+import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.MenuItem;
+
+public class InvoiceLanding extends SherlockActivity
 {
 	PortalAPI API = new PortalAPI();
 	JSONObject InvoiceAPIReturn = null;
@@ -43,6 +44,7 @@ public class InvoiceLanding extends Activity
 	String Success = "false";
 	String ErrorMessage = "";
 	List<Invoices> listOfInvoices = new ArrayList<Invoices>();
+	List<Receipts> Receipts = new ArrayList<Receipts>();
 	ListView list = null;
 	
 	public void onCreate(Bundle savedInstanceState) 
@@ -51,7 +53,9 @@ public class InvoiceLanding extends Activity
 		super.onCreate(savedInstanceState);
 	    setContentView(R.layout.invoicelanding);
 	    final ListView list = (ListView)findViewById(R.id.InvoiceList);
-	    
+	    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		getSupportActionBar().setTitle("Accounting");
+		
 	    final ProgressDialog dialog = ProgressDialog.show(this, "Pulsant Portal", "Please wait: loading data....", true);
     	final Handler handler = new Handler() 
     	{
@@ -140,7 +144,13 @@ public class InvoiceLanding extends Activity
     		        	try 
     		        	{
     		        		if(CurrentInvoice.getString("type").equals("invoice"))
+    		        		{
     		        			listOfInvoices.add(new Invoices(CurrentInvoice.getString("ref"), CurrentInvoice.getDouble("amount"), CurrentInvoice.getString("details"), CurrentInvoice.getString("date")));
+    		        		}
+    		        		else
+    		        		{
+    		        			Receipts.add(new Receipts(CurrentInvoice.getString("ref"), CurrentInvoice.getDouble("amount"), CurrentInvoice.getString("details"), CurrentInvoice.getString("date")));
+    		        		}
     					} 
     		        	catch (JSONException e) 
     		        	{
@@ -154,6 +164,17 @@ public class InvoiceLanding extends Activity
     	};
     	
     	dataPreload.start();
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    switch (item.getItemId()) {
+	        case android.R.id.home:
+	        	finish();
+	            return(true);
+	    }
+
+	    return(super.onOptionsItemSelected(item));
 	}
 	
 	public void UpdateErrorMessage(String MessageText)

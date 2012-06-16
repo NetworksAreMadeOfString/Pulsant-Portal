@@ -18,7 +18,6 @@
 */
 package net.networksaremadeofstring.pulsant.portal;
 
-import net.networksaremadeofstring.pulsant.portal.R;
 
 public class Invoices 
 {

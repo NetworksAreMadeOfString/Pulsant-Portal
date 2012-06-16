@@ -1,0 +1,82 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout01"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#333333" >
+
+    <CheckBox
+        android:id="@+id/RememberDetailsCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Remember Details" >
+    </CheckBox>
+
+    <ImageView
+        android:id="@+id/ImageView02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="25px"
+        android:src="@drawable/logo" >
+    </ImageView>
+
+    <EditText
+        android:id="@+id/AcctCodeInput"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ImageView02"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="40px"
+        android:layout_marginRight="40px"
+        android:hint="Account Code"
+        android:inputType="text|textCapCharacters" >
+    </EditText>
+
+    <EditText
+        android:id="@+id/EmailInput"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/AcctCodeInput"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="40px"
+        android:layout_marginRight="40px"
+        android:hint="Email Address"
+        android:inputType="textEmailAddress"
+        android:lines="1"
+        android:maxLines="1" >
+    </EditText>
+
+    <EditText
+        android:id="@+id/PasswordInput"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/EmailInput"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="40px"
+        android:layout_marginRight="40px"
+        android:hint="Password"
+        android:inputType="textPassword" >
+    </EditText>
+
+    <Button
+        android:id="@+id/LoginButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/PasswordInput"
+        android:layout_centerHorizontal="true"
+        android:text="Login to Portal" />
+
+    <TextView
+        android:id="@+id/DisclaimerText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/LoginButton"
+        android:gravity="center_horizontal"
+        android:text="This is an unofficial app. Pulsant and the Pulsant logos are the trademarks of Pulsant Ltd. The author is not affiliated with Pulsant."
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textSize="4pt" />
+
+</RelativeLayout>

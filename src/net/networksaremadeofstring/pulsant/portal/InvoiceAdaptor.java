@@ -21,6 +21,7 @@ package net.networksaremadeofstring.pulsant.portal;
 import java.util.Date;
 import java.util.List;
 import android.content.Context;
+import android.graphics.Color;
 import android.text.format.DateFormat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -63,6 +64,7 @@ public class InvoiceAdaptor extends BaseAdapter implements OnClickListener {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.invoices_list, null);
         }
+        
         TextView ReferenceTextView = (TextView) convertView.findViewById(R.id.InvoiceReference);
         ReferenceTextView.setText(entry.getreference());
 
@@ -71,10 +73,35 @@ public class InvoiceAdaptor extends BaseAdapter implements OnClickListener {
         DateTextView.setText( entry.getdate());
         
         TextView InvoiceAmountTextView = (TextView) convertView.findViewById(R.id.InvoiceAmount);
-        InvoiceAmountTextView.setText("£" + Double.toString(entry.getamount()));
+        String amount = Double.toString(entry.getamount());
+        if(amount.indexOf(".") > (amount.length() - 3))
+        	amount = amount + "0";
+        
+        /*int digits = 10 - amount.length();
+        
+        for (int i = 0; i < digits; i++) 
+        {
+        	amount = " " + amount;
+        }*/
+        
+        InvoiceAmountTextView.setText("£" + amount);
         
         TextView InvoiceDetailsTextView = (TextView) convertView.findViewById(R.id.InvoiceDetails);
-        InvoiceDetailsTextView.setText(entry.getdetails());
+       
+        if(entry.getdetails().equals("Unallocated"))
+        {
+        	InvoiceDetailsTextView.setText("[ UNPAID ]");
+        	InvoiceDetailsTextView.setTextColor(Color.RED);
+        	InvoiceAmountTextView.setTextColor(Color.RED);
+        }
+        else
+        {
+        	InvoiceDetailsTextView.setText(entry.getdetails());
+        	InvoiceDetailsTextView.setTextColor(Color.rgb(80, 150, 50));
+        	InvoiceAmountTextView.setTextColor(Color.rgb(80, 150, 50));
+        }
+        
+        
         //convertView.setOnClickListener(this);
         return convertView;
     }

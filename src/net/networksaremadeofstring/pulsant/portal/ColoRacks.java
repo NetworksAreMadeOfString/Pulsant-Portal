@@ -18,8 +18,6 @@
 */
 package net.networksaremadeofstring.pulsant.portal;
 
-import net.networksaremadeofstring.pulsant.portal.R;
-
 public class ColoRacks {
 	private String ip;
 	private String servercode;
@@ -28,9 +26,11 @@ public class ColoRacks {
 	private String bandwidthTotal;
 	private int transferlimit;
 	private String state;
+	private String Description;
+	private Boolean selected = false;
 	
 	 // Constructor for the Colo class
-    public ColoRacks(String ip, String servercode, String facility, int bandwidth, String bandwidthTotal, int transferlimit, String state) 
+    public ColoRacks(String ip, String servercode, String facility, int bandwidth, String bandwidthTotal, int transferlimit, String state, String Description) 
     {
             super();
             this.ip = ip;
@@ -39,12 +39,33 @@ public class ColoRacks {
             this.bandwidth = bandwidth;
             this.bandwidthTotal = bandwidthTotal;
             this.transferlimit = transferlimit;
+            this.Description = Description;
             this.state = state;
     }
     
     public String getip() 
     {
         return this.ip;
+    }
+    
+    public String getDesc() 
+    {
+        return this.Description;
+    }
+    
+    public void setDescription(String Description) 
+    {
+    	this.Description = Description;
+    }
+    public Boolean SetSelected(Boolean toggle)
+    {
+    	this.selected = toggle;
+    	return toggle;
+    }
+    
+    public Boolean GetSelected()
+    {
+    	return this.selected;
     }
     
     public String getservercode() 

@@ -1,10 +1,87 @@
-<RelativeLayout android:id="@+id/RelativeLayout01" android:layout_width="fill_parent" android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android"><ImageView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/StatusIcon" android:minWidth="32px" android:minHeight="32px" android:scaleType="fitXY" android:src="@drawable/down"></ImageView>
-<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@+id/StatusIcon" android:id="@+id/Facility" android:text="Cadogan / TVHC / TVHC2"></TextView><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_below="@+id/Facility" android:id="@+id/MonitoredLabel" android:text="Monitored: "></TextView><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@+id/MonitoredLabel" android:layout_below="@+id/Facility" android:id="@+id/MonitorStatus" android:text="No"></TextView><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@+id/MonitorStatus" android:layout_below="@+id/Facility" android:layout_marginLeft="30px" android:id="@+id/BackupsLabel" android:text="Backups: "></TextView><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@+id/BackupsLabel" android:layout_below="@+id/Facility" android:id="@+id/BackupStatus" android:text="None"></TextView><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@+id/Facility" android:layout_below="@+id/StatusIcon" android:id="@+id/ManagedBandwidth" android:text="0Gb of 1337Tb" android:paddingLeft="20px"></TextView><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_toRightOf="@+id/StatusIcon" android:id="@+id/DEDCode" android:text="DED00000" android:textSize="24px" android:inputType="text"></TextView>
-<TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:id="@+id/Desc" android:text="Description" android:textSize="8px" android:layout_toRightOf="@+id/StatusIcon" android:layout_marginTop="25px"></TextView>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout01"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
 
+    <ImageView
+        android:id="@+id/StatusIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="32px"
+        android:minWidth="32px"
+        android:scaleType="fitXY"
+        android:src="@drawable/down" >
+    </ImageView>
 
+    <TextView
+        android:id="@+id/DEDCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/StatusIcon"
+        android:inputType="text"
+        android:text="DED00000"
+        android:textColor="#ffffff"
+        android:textSize="20dp" >
+    </TextView>
 
+    <TextView
+        android:id="@+id/Desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/DEDCode"
+        android:text="Description"
+        android:textSize="8dp" />
 
+    <TextView
+        android:id="@+id/Facility"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/Desc"
+        android:text="Cadogan / TVHC / TVHC2" />
 
+    <TextView
+        android:id="@+id/MonitoredLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/Facility"
+        android:text="Monitored: " />
+
+    <TextView
+        android:id="@+id/MonitorStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Facility"
+        android:layout_toRightOf="@+id/MonitoredLabel"
+        android:text="No" />
+
+    <TextView
+        android:id="@+id/ManagedBandwidth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/Desc"
+        android:gravity="right"
+        android:paddingLeft="20px"
+        android:text="0Gb of 1337Tb" />
+
+    <TextView
+        android:id="@+id/BackupsLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/MonitorStatus"
+        android:layout_alignBottom="@+id/MonitorStatus"
+        android:layout_toRightOf="@+id/MonitorStatus"
+        android:text="Backups: " android:layout_marginLeft="20dp"/>
+
+    <TextView
+        android:id="@+id/BackupStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/BackupsLabel"
+        android:layout_alignBottom="@+id/BackupsLabel"
+        android:layout_toRightOf="@+id/BackupsLabel"
+        android:text="None" />
 
 </RelativeLayout>

@@ -1,0 +1,136 @@
+<LinearLayout
+		    xmlns:android="http://schemas.android.com/apk/res/android"
+		    android:id="@+id/LinearLayout01"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:background="#333333"
+		    android:orientation="vertical"
+		    android:paddingLeft="10sp"
+		    android:paddingTop="2sp">
+
+		    <LinearLayout
+		        android:id="@+id/LinearLayout02"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content" >
+
+		        <ImageView
+		            android:id="@+id/ColoStateIcon"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_marginTop="4dp"
+		            android:src="@drawable/down" />
+
+		        <TextView
+		            android:id="@+id/coloServerCode"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="Name"
+		            android:textColor="#ffffff"
+		            android:textSize="24sp"
+		            android:textStyle="bold"
+		            android:typeface="sans" >
+		        </TextView>
+
+		    </LinearLayout>
+
+		    <LinearLayout
+		        android:id="@+id/LinearLayout03"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content" >
+
+		        <TextView
+		            android:id="@+id/TextView01"
+		            android:layout_width="80dp"
+		            android:layout_height="wrap_content"
+		            android:text="Facility:"
+		            android:textColor="#ffffff"
+		            android:textSize="13sp"
+		            android:textStyle="bold" >
+		        </TextView>
+
+		        <TextView
+		            android:id="@+id/coloFacility"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="Number"
+		            android:textColor="#ffffff"
+		            android:textSize="13sp" >
+		        </TextView>
+		    </LinearLayout>
+
+		    <LinearLayout
+		        android:id="@+id/LinearLayout04"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content" >
+
+		        <TextView
+		            android:id="@+id/TextView01"
+		            android:layout_width="80dp"
+		            android:layout_height="wrap_content"
+		            android:text="Bandwidth: "
+		            android:textColor="#ffffff"
+		            android:textSize="13sp"
+		            android:textStyle="bold" >
+		        </TextView>
+
+		        <TextView
+		            android:id="@+id/coloBandwidth"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_weight="1"
+		            android:text="0"
+		            android:textColor="#ffffff"
+		            android:textSize="13sp" >
+		        </TextView>
+		    </LinearLayout>
+		    <LinearLayout
+		        android:id="@+id/LinearLayout04"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content" >
+
+		        <TextView
+		            android:id="@+id/comboLabel"
+		            android:layout_width="80dp"
+		            android:layout_height="wrap_content"
+		            android:text="Lock Combo:"
+		            android:textColor="#ffffff"
+		            android:textSize="13sp"
+		            android:textStyle="bold" >
+		        </TextView>
+
+		        <TextView
+		            android:id="@+id/coloLockCombo"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_weight="1"
+		            android:text="0"
+		            android:textColor="#ffffff"
+		            android:textSize="13sp" >
+		        </TextView>
+		    </LinearLayout>
+		    <LinearLayout
+		        android:id="@+id/LinearLayout04"
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content" >
+
+		        <TextView
+		            android:id="@+id/IPLabel"
+		            android:layout_width="80dp"
+		            android:layout_height="wrap_content"
+		            android:text="Primary IP:"
+		            android:textColor="#ffffff"
+		            android:textSize="13sp"
+		            android:textStyle="bold" >
+		        </TextView>
+
+		        <TextView
+		            android:id="@+id/coloIP"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_weight="1"
+		            android:text="0"
+		            android:textColor="#ffffff"
+		            android:textSize="13sp" >
+		        </TextView>
+		    </LinearLayout>
+		</LinearLayout>

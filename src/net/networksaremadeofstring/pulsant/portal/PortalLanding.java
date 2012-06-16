@@ -18,32 +18,93 @@
 */
 package net.networksaremadeofstring.pulsant.portal;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.TextView;
-import net.networksaremadeofstring.pulsant.portal.R;
+import android.widget.SpinnerAdapter;
+import android.widget.Toast;
 
-public class PortalLanding extends Activity
+import com.actionbarsherlock.app.ActionBar;
+import com.actionbarsherlock.app.ActionBar.OnNavigationListener;
+import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.ActionMode;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
+
+public class PortalLanding extends SherlockActivity
 {
 	PortalAPI API = new PortalAPI();
+	final String CATEGORIES[] = { "Portal", "Managed Hosting", "Colocation", "Cloud", "Managed Networks", "Tickets", "Account" };
+	OnNavigationListener navHandler;
+	
 	// Called when the activity is first created.
 	public void onCreate(Bundle savedInstanceState) 
-	{
-		//Your code here
+	{   
 		API.SessionID = getIntent().getStringExtra("sessionid");
 		super.onCreate(savedInstanceState);
-	    setContentView(R.layout.portallanding_iclone);
+	    setContentView(R.layout.portallanding);
 	    
-	    //---------------------------------- IClone View--------------------------------------
+	    
+	    CreateHandlers();
+	    
+	    ActionBar sAb = getSupportActionBar();
+	    sAb.setTitle("");
+	    sAb.setNavigationMode(sAb.NAVIGATION_MODE_LIST);//android.app.ActionBar.NAVIGATION_MODE_LIST
+        SpinnerAdapter adap = new ArrayAdapter(this, R.layout.sherlock_spinner_dropdown_item, CATEGORIES);
+        sAb.setListNavigationCallbacks(adap, navHandler);
+        sAb.setSelectedNavigationItem(0);
+
+        ((ImageView) findViewById(R.id.managedImage)).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) 
+            {
+            	GotoManagedLanding();
+            }
+        });
+        
+        ((ImageView) findViewById(R.id.coloImage)).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) 
+            {
+            	GotoColoLanding();
+            }
+        });
+        
+        ((ImageView) findViewById(R.id.cloudImage)).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) 
+            {
+            	Toast.makeText(v.getContext(), "Ask your Account manager to add Cloud functionality to the API", Toast.LENGTH_LONG).show();
+            }
+        });
+        
+        ((ImageView) findViewById(R.id.networksImage)).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) 
+            {
+            	GotoNetworksLanding();
+            }
+        });
+        
+        ((ImageView) findViewById(R.id.ticketsImage)).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) 
+            {
+            	GotoTicketsLanding();
+            }
+        });
+        
+        ((ImageView) findViewById(R.id.invoicesImage)).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) 
+            {
+            	GotoAccountLanding();
+            }
+        });
+        
 	    //Create Ticket
-	    TextView CreateTicketText = (TextView) findViewById(R.id.CreateTicketLabel);
+	    /*TextView CreateTicketText = (TextView) findViewById(R.id.CreateTicketLabel);
 	    CreateTicketText.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) 
             {
-            	//This doesn't exist yet!
             	Intent CreateTicketIntent = new Intent(PortalLanding.this, CreateTicket.class);
             	CreateTicketIntent.putExtra("sessionid", API.SessionID);
         		PortalLanding.this.startActivity(CreateTicketIntent);
@@ -164,8 +225,101 @@ public class PortalLanding extends Activity
             	InvoiceIntent.putExtra("sessionid", API.SessionID);
         		PortalLanding.this.startActivity(InvoiceIntent);
             }
-        });
+        });*/
 
 	}
+	
+	public void CreateHandlers()
+	{
+		navHandler = new OnNavigationListener() 
+    	{
+			@Override
+			public boolean onNavigationItemSelected(int itemPosition, long itemId) 
+			{
+				getSupportActionBar().setSelectedNavigationItem(0);
+				// { "Goto ....", "Managed Hosting", "Colocation", "Cloud", "Managed Networks", "Tickets", "Account" };
+				switch(itemPosition)
+				{
+					case 0:
+					{
+						return false;
+					}
+					
+					case 1:
+					{
+						GotoManagedLanding();
+					}
+					break;
+					
+					case 2:
+					{
+						GotoColoLanding();
+					}
+					break;
+					
+					case 3:
+					{
+						Toast.makeText(PortalLanding.this, "Ask your Account manager to add Cloud functionality to the API", Toast.LENGTH_LONG).show();
+					}
+					break;
+					
+					case 4:
+					{
+						GotoNetworksLanding();
+					}
+					break;
+					
+					case 5:
+					{
+						GotoTicketsLanding();
+					}
+					break;
+					
+					
+					case 6:
+					{
+						GotoAccountLanding();
+					}
+					break;
+				}
+				return false;
+			}
+    		
+    	};
+	}
 
+	public void GotoColoLanding()
+	{
+		Intent ColoIntent = new Intent(PortalLanding.this, ColoLanding.class);
+    	ColoIntent.putExtra("sessionid", API.SessionID);
+		PortalLanding.this.startActivity(ColoIntent);
+	}
+	
+	public void GotoAccountLanding()
+	{
+		Intent InvoiceIntent = new Intent(PortalLanding.this, InvoiceLanding.class);
+    	InvoiceIntent.putExtra("sessionid", API.SessionID);
+		PortalLanding.this.startActivity(InvoiceIntent);
+	}
+	
+	public void GotoNetworksLanding()
+	{
+		Intent CDNIntent = new Intent(PortalLanding.this, CDNLanding.class);
+    	CDNIntent.putExtra("sessionid", API.SessionID);
+		PortalLanding.this.startActivity(CDNIntent);
+	}
+	
+	public void GotoManagedLanding()
+	{
+		Intent ManagedServerIntent = new Intent(PortalLanding.this, ManagedServerLanding.class);
+    	ManagedServerIntent.putExtra("sessionid", API.SessionID);
+		PortalLanding.this.startActivity(ManagedServerIntent);
+	}
+	
+	public void GotoTicketsLanding()
+	{
+		Intent TicketIntent = new Intent(PortalLanding.this, TicketLanding.class);
+    	TicketIntent.putExtra("sessionid", API.SessionID);
+		PortalLanding.this.startActivity(TicketIntent);
+	}
 }

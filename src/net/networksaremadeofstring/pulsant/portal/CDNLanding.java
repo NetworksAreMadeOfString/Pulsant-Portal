@@ -25,6 +25,10 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.actionbarsherlock.app.ActionBar;
+import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.MenuItem;
+
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -33,9 +37,8 @@ import android.os.Message;
 import android.util.Log;
 import android.widget.ListView;
 import android.widget.TextView;
-import net.networksaremadeofstring.pulsant.portal.R;
 
-public class CDNLanding extends Activity
+public class CDNLanding extends SherlockActivity
 {
 	PortalAPI API = new PortalAPI();
 	JSONObject CDNs = null;
@@ -51,10 +54,12 @@ public class CDNLanding extends Activity
 	{
 		API.SessionID = getIntent().getStringExtra("sessionid");
 		super.onCreate(savedInstanceState);
-	    setContentView(R.layout.cdnlanding);
-	    
+	    //setContentView(R.layout.cdnlanding);
+		setContentView(R.layout.cdnlanding_holding);
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		getSupportActionBar().setTitle("Managed Networks");
 	    //Progress test
-	    list = (ListView)findViewById(R.id.CDNList);
+	    /*list = (ListView)findViewById(R.id.CDNList);
 	    final ProgressDialog dialog = ProgressDialog.show(this, "Pulsant Portal", "Please wait: loading data....", true);
     	final Handler handler = new Handler() 
     	{
@@ -148,7 +153,8 @@ public class CDNLanding extends Activity
     		}
     	};
 
-    	dataPreload.start();
+    	dataPreload.start();*/
+	    
     	//Progress test
     	
 	    /*try 
@@ -222,6 +228,17 @@ public class CDNLanding extends Activity
 	    }*/
 	}
 	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    switch (item.getItemId()) {
+	        case android.R.id.home:
+	        	finish();
+	            return(true);
+	    }
+
+	    return(super.onOptionsItemSelected(item));
+	}
+
 	public void UpdateErrorMessage(String MessageText)
 	{
 		TextView ErrorMessage = (TextView) findViewById(R.id.ErrorMessageText);

@@ -93,7 +93,7 @@ public class ViewTicket extends Activity implements Runnable
     		    	Log.e("APIFuncs",e.getMessage());
     			}
     		    
-    		    if(Success == "false")
+    		    if(Success.equals("false"))
     		    {
     		    	try 
     		    	{
@@ -102,8 +102,10 @@ public class ViewTicket extends Activity implements Runnable
     				} 
     		    	catch (JSONException e) 
     		    	{
+    		    		ErrorMessage = e.getMessage();
     		    		Log.e("APIFuncs",e.getMessage());
     				}
+    		    	handler.sendEmptyMessage(0);
     		    }
     		    else
     		    {

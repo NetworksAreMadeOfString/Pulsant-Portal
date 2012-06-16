@@ -123,6 +123,10 @@ public class PortalAPI
 		}
 	}  
 	
+	public void UpdateColoDescription(String ServerCode,String Description) throws JSONException
+	{
+		PortalQueryHack("UpdateColoDesc",ServerCode,Description);
+	}
 
 	public JSONObject PortalQueryHack(String Action, String Key, String Payload) throws JSONException 
 	{  
@@ -141,6 +145,12 @@ public class PortalAPI
 		{
 			//?panel=managedservices&page=serverdescription&extra=DEDXXXXXX&newdesc=New%20Description&_dc=1315602914100
 			Panel = "managedservices";
+			Page = "serverdescription";
+			Payload = "&newdesc=" + Payload;
+		}
+		else if(Action.equals("UpdateColoDesc"))
+		{
+			Panel = "colo";
 			Page = "serverdescription";
 			Payload = "&newdesc=" + Payload;
 		}
@@ -231,7 +241,7 @@ public class PortalAPI
 		JSONObject json = new JSONObject();
 		if(Action.equals("updates"))
 		{
-			//Log.i("APIFuncs","Calling https://portal.pulsant.com/api.php?format=json&action=" + Action +"&ticketid=" + ActionDetails);
+			Log.i("APIFuncs","Calling https://portal.pulsant.com/api.php?format=json&action=" + Action +"&ticketid=" + ActionDetails);
 			httppost = new HttpPost("https://portal.pulsant.com/api.php?format=json&action=" + Action +"&ticketid=" + ActionDetails);
 		}
 		else
@@ -241,7 +251,7 @@ public class PortalAPI
 		
 		try 
 		{  
-			//Log.i("APIFuncs","Adding PHPSESSID=" + this.SessionID + " to the Cookie");
+			Log.i("APIFuncs","Adding PHPSESSID=" + this.SessionID + " to the Cookie");
 			httppost.setHeader("Cookie","PHPSESSID=" + this.SessionID);
 			response = httpclient.execute(httppost);
 			//Log.i("APIFuncs","Done");

@@ -20,10 +20,12 @@ package net.networksaremadeofstring.pulsant.portal;
 
 import java.util.List;
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.view.View.OnLongClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -61,7 +63,7 @@ public class ManagedServerAdaptor extends BaseAdapter implements OnClickListener
         {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             //convertView = inflater.inflate(R.layout.managed_list, null);
-            convertView = inflater.inflate(R.layout.managed_list_iclone, null);
+            convertView = inflater.inflate(R.layout.managed_list, null);
         }
         TextView DEDCode = (TextView) convertView.findViewById(R.id.DEDCode);
         DEDCode.setText(Server.getservercode());
@@ -69,8 +71,7 @@ public class ManagedServerAdaptor extends BaseAdapter implements OnClickListener
         TextView Description = (TextView) convertView.findViewById(R.id.Desc);
         Description.setText(Server.getdescription());
        
-        //Disabled to look more like the iphone version
-        /*TextView Facility = (TextView) convertView.findViewById(R.id.Facility);
+        TextView Facility = (TextView) convertView.findViewById(R.id.Facility);
         Facility.setText(Server.getfacility());
         
         TextView Bandwidth = (TextView) convertView.findViewById(R.id.ManagedBandwidth);
@@ -81,7 +82,7 @@ public class ManagedServerAdaptor extends BaseAdapter implements OnClickListener
         	TextView BackupStatus = (TextView) convertView.findViewById(R.id.BackupStatus);
         	BackupStatus.setText("Enabled");
         }
-        */
+        
         
         if(Server.getstate().equals("up"))
         {
@@ -91,10 +92,10 @@ public class ManagedServerAdaptor extends BaseAdapter implements OnClickListener
         
         if(Server.getmonitored() == true)
         {
-        	//TextView MonitorStatus = (TextView) convertView.findViewById(R.id.MonitorStatus);
-        	//MonitorStatus.setText("Enabled");
-        	ImageView imgView2 = (ImageView) convertView.findViewById(R.id.StateIcon);
-        	imgView2.setImageResource(R.drawable.up);
+        	TextView MonitorStatus = (TextView) convertView.findViewById(R.id.MonitorStatus);
+        	MonitorStatus.setText("Enabled");
+        	/*ImageView imgView2 = (ImageView) convertView.findViewById(R.id.StateIcon);
+        	imgView2.setImageResource(R.drawable.up);*/
         }
         
         if(Server.getsoftware().equals("windows"))
@@ -103,17 +104,16 @@ public class ManagedServerAdaptor extends BaseAdapter implements OnClickListener
 			imgView3.setImageResource(R.drawable.software_windows);
         }
         
-		
+        convertView.setTag(Server.getservercode());
         convertView.setOnClickListener(this);
         return convertView;
     }
 
     public void onClick(View view) 
     {
-    	RelativeLayout RL = (RelativeLayout) view;
+    	/*RelativeLayout RL = (RelativeLayout) view;
     	TextView DEDCode = (TextView) RL.getChildAt(4);
-    	String ID = DEDCode.getText().toString();
-    	((ManagedServerLanding)context).ViewServerDetails(ID, this.SessionID);
+    	String ID = DEDCode.getText().toString();*/
+    	((ManagedServerLanding)context).ViewServerDetails((String)view.getTag(), this.SessionID);
     }
-
 }

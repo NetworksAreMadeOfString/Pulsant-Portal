@@ -1,0 +1,5 @@
+
+    <menu xmlns:android="http://schemas.android.com/apk/res/android">
+        <item android:id="@+id/Details" android:title="See Details" android:titleCondensed="See Details"></item>
+        <item android:id="@+id/Edit" android:title="Edit Descripton" android:titleCondensed="Edit"></item>
+    </menu>

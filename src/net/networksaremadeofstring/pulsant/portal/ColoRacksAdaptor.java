@@ -19,24 +19,34 @@
 package net.networksaremadeofstring.pulsant.portal;
 
 import java.util.List;
+
 import android.content.Context;
+import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnLongClickListener;
 import android.view.ViewGroup;
-import android.view.View.OnClickListener;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import net.networksaremadeofstring.pulsant.portal.R;
 
-public class ColoRacksAdaptor extends BaseAdapter implements OnClickListener {
+public class ColoRacksAdaptor extends BaseAdapter implements OnLongClickListener {
     private Context context;
 
     private List<ColoRacks> listColoRacks;
+    private OnLongClickListener listener;
 
     public ColoRacksAdaptor(Context context, List<ColoRacks> listColoRacks) {
         this.context = context;
         this.listColoRacks = listColoRacks;
+    }
+    
+    public ColoRacksAdaptor(Context context, List<ColoRacks> listColoRacks, OnLongClickListener longPressListener) 
+    {
+        this.context = context;
+        this.listColoRacks = listColoRacks;
+        this.listener = longPressListener;
     }
 
     public int getCount() {
@@ -57,16 +67,17 @@ public class ColoRacksAdaptor extends BaseAdapter implements OnClickListener {
         {
             LayoutInflater inflater = (LayoutInflater) context
                     .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.colo_list_iclone, null);
+            convertView = inflater.inflate(R.layout.colo_list, null);
         }
+        
         TextView servercodeTextView = (TextView) convertView.findViewById(R.id.coloServerCode);
         servercodeTextView.setText(entry.getservercode());
 
-        /*TextView stateTextView = (TextView) convertView.findViewById(R.id.coloState);
+        TextView stateTextView = (TextView) convertView.findViewById(R.id.coloState);
         stateTextView.setText("( " + entry.getstate() + " )");
         
         TextView facilityTextView = (TextView) convertView.findViewById(R.id.coloFacility);
-        facilityTextView.setText(entry.getfacility());*/
+        facilityTextView.setText(entry.getfacility());
 
         TextView bandwidthTextView = (TextView) convertView.findViewById(R.id.coloBandwidth);
         bandwidthTextView.setText(entry.getbandwidthTotal());
@@ -77,27 +88,42 @@ public class ColoRacksAdaptor extends BaseAdapter implements OnClickListener {
 			imgView.setImageResource(R.drawable.up);
         }
         
-        // Set the onClick Listener on this button
-        /*Button btnRemove = (Button) convertView.findViewById(R.id.btnRemove);
-        btnRemove.setOnClickListener(this);
-        // Set the entry, so that you can capture which item was clicked and
-        // then remove it
-        // As an alternative, you can use the id/position of the item to capture
-        // the item
-        // that was clicked.
-        btnRemove.setTag(entry);
-
-        // btnRemove.setId(position);*/
-
+        if(entry.GetSelected())
+        {
+        	((View) convertView.findViewById(R.id.selectedIndicator)).setBackgroundColor(Color.rgb(49, 178, 222));
+        	Log.i("Selected","Selected");
+        }
+        else
+        {
+        	((View) convertView.findViewById(R.id.selectedIndicator)).setBackgroundColor(Color.rgb(51, 51, 51));
+        	Log.i("Selected","Not Selected");
+        }
+        
+        convertView.setTag(position);
+        convertView.setOnLongClickListener(this);
+        /*if(listener != null)
+        	convertView.setOnLongClickListener((OnLongClickListener) listener);*/
+        
         return convertView;
     }
 
-    public void onClick(View view) {
+	@Override
+	public boolean onLongClick(View arg0)
+	{
+		((ColoLanding)context).ColoLongPress((Integer) arg0.getTag());
+		return true;
+	}
+
+	/*public boolean onLongClick(View arg0,String test)
+	{
+		((ColoLanding)context).ColoLongPress((Integer) arg0.getTag());
+		return true;
+	}*/
+    /*public void onClick(View view) {
     	ColoRacks entry = (ColoRacks) view.getTag();
     	listColoRacks.remove(entry);
         // listPhonebook.remove(view.getId());
         notifyDataSetChanged();
 
-    }
-
+    }*/
 }

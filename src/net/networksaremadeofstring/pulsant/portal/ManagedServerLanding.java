@@ -25,6 +25,13 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.actionbarsherlock.app.ActionBar;
+import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.ActionMode;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuInflater;
+import com.actionbarsherlock.view.MenuItem;
+
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -32,12 +39,15 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+import android.view.View;
+import android.view.View.OnLongClickListener;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import net.networksaremadeofstring.pulsant.portal.R;
 
-public class ManagedServerLanding extends Activity
+public class ManagedServerLanding extends SherlockActivity
 {
 
 	PortalAPI API = new PortalAPI();
@@ -48,12 +58,17 @@ public class ManagedServerLanding extends Activity
 	ListView list = null;
     List<ManagedServer> listOfManagedServers = new ArrayList<ManagedServer>();
     String ErrorMessage = "";
+    ActionMode mActionMode;
     
 	public void onCreate(Bundle savedInstanceState) 
 	{
 		API.SessionID = getIntent().getStringExtra("sessionid");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.managedserverlanding);
+		
+		getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		getSupportActionBar().setTitle("Managed Servers");
+		
 		//temp
 		list = (ListView)findViewById(R.id.ManagedServerList);
 		final ProgressDialog dialog = ProgressDialog.show(this, "Pulsant Portal", "Please wait: loading data....", true);
@@ -65,8 +80,26 @@ public class ManagedServerLanding extends Activity
     			if(Success.equals("true"))
     			{
     				UpdateErrorMessage(ErrorMessage);
+    				
     				ManagedServerAdaptor adapter = new ManagedServerAdaptor(ManagedServerLanding.this, listOfManagedServers, API.SessionID);
     		        list.setAdapter(adapter);
+    		        /*list.setChoiceMode(ListView.CHOICE_MODE_SINGLE);
+    		        list.setOnLongClickListener(new View.OnLongClickListener() {
+				    	public boolean onLongClick(View view) 
+				    	{
+				            if (mActionMode != null) 
+				            {
+				            	Log.i("onLongClick","Nuhuh");
+				                return false;
+				            }
+				
+				            // Start the CAB using the ActionMode.Callback defined above
+				            mActionMode = startActionMode(mActionModeCallback);
+				            view.setSelected(true);
+				            return true;
+				        }
+				
+				    });*/
     			}
     			else
     			{
@@ -167,76 +200,7 @@ public class ManagedServerLanding extends Activity
     		
     	
     	dataPreload.start();
-		//temp
-	    /*try 
-	    {
-			Servers = API.PortalQuery("servers", "none");
-			Success = Servers.getString("success");
-		} 
-	    catch (JSONException e) 
-	    {
-	    	UpdateErrorMessage("An unrecoverable JSON Exception occured.");
-		}
-	    
-	    if(Success == "false")
-	    {
-	    	try 
-	    	{
-				UpdateErrorMessage(Servers.getString("msg"));
-			} 
-	    	catch (JSONException e) 
-	    	{
-	    		UpdateErrorMessage("An unrecoverable JSON Exception occured.");
-			}
-	    }
-	    else
-	    {
-	    	Log.i("APIFuncs",Servers.toString());
-	    	try
-	 	    {
-	    		ManagedServers = Servers.getJSONArray("servers");
-	 	    	UpdateErrorMessage("");
-	 	    }
-	 	    catch (JSONException e) 
-	 	    {
-	 	    	UpdateErrorMessage("There are no Managed servers in your account.");
-	 	    }
-	 	    
-	 	    //OK lets actually do something useful
-	 	    ListView list = (ListView)findViewById(R.id.ManagedServerList);
-	        List<ManagedServer> listOfManagedServers = new ArrayList<ManagedServer>();
-	        int ServerCount = ManagedServers.length();
-	        for(int i = 0; i < ServerCount; i++)
-	        {
-	        	
-				try 
-				{
-					CurrentServer = ManagedServers.getJSONObject(i).getJSONObject("Server");
-				} 
-				catch (JSONException e1) 
-				{
-					Log.e("APIFuncs",e1.getMessage());
-				}
-
-        		//Log.e("APIFuncs",CurrentServer.toString(3));
-        		listOfManagedServers.add(new ManagedServer(GetString("ip"),
-        				GetString("servercode"),
-        				GetString("description"),
-        				GetString("facility"),
-        				GetInt("bandwidth"),
-        				GetString("bandwidthTotal"),
-        				GetBool("monitored"),
-        				GetInt("transferlimit"),
-        				GetString("software"),
-        				GetString("state"),
-        				GetBool("managedbackupenabled")));
-	        }
-	        
-	        ManagedServerAdaptor adapter = new ManagedServerAdaptor(this, listOfManagedServers, API.SessionID);
-	        
-	        list.setAdapter(adapter);
-	    }*/
-	    
+	   
 	}
 	
 	public String GetString(String requiredString)
@@ -308,4 +272,55 @@ public class ManagedServerLanding extends Activity
 			Toast.makeText(ManagedServerLanding.this, "Somehow we were unable to find that server in the Portal...", Toast.LENGTH_SHORT).show();
 		
 	}
+	
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    switch (item.getItemId()) {
+	        case android.R.id.home:
+	        	finish();
+	            return(true);
+	    }
+
+	    return(super.onOptionsItemSelected(item));
+	}
+	
+	private ActionMode.Callback mActionModeCallback = new ActionMode.Callback() {
+
+        // Called when the action mode is created; startActionMode() was called
+        @Override
+        public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+            // Inflate a menu resource providing context menu items
+            MenuInflater inflater = mode.getMenuInflater();
+            inflater.inflate(R.menu.server_menu, menu);
+            return true;
+        }
+
+        // Called each time the action mode is shown. Always called after onCreateActionMode, but
+        // may be called multiple times if the mode is invalidated.
+        @Override
+        public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+            return false; // Return false if nothing is done
+        }
+
+        // Called when the user selects a contextual menu item
+        @Override
+        public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+            switch (item.getItemId()) 
+            {
+                case R.id.change:
+                    //shareCurrentItem();
+                    mode.finish(); // Action picked, so close the CAB
+                    return true;
+                default:
+                    return false;
+            }
+        }
+
+        // Called when the user exits the action mode
+        @Override
+        public void onDestroyActionMode(ActionMode mode) {
+            mActionMode = null;
+        }
+    };
 }

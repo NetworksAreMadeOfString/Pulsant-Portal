@@ -25,7 +25,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -34,9 +33,11 @@ import android.os.Message;
 import android.util.Log;
 import android.widget.ListView;
 import android.widget.TextView;
-import net.networksaremadeofstring.pulsant.portal.R;
 
-public class TicketLanding extends Activity
+import com.actionbarsherlock.app.SherlockActivity;
+import com.actionbarsherlock.view.MenuItem;
+
+public class TicketLanding extends SherlockActivity
 {
 	PortalAPI API = new PortalAPI();
 	JSONObject TicketAPI = null;
@@ -50,9 +51,14 @@ public class TicketLanding extends Activity
 		API.SessionID = getIntent().getStringExtra("sessionid");
 		super.onCreate(savedInstanceState);
 	    setContentView(R.layout.ticketlanding);
+	    
+	    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		getSupportActionBar().setTitle("Tickets");
+		
+		
 	    final ListView list = (ListView)findViewById(R.id.TicketList);
 	    
-	    final ProgressDialog dialog = ProgressDialog.show(this, "Pulsant Portal", "Please wait: loading data....", true);
+	    final ProgressDialog dialog = ProgressDialog.show(this, "Pulsant Portal", "Please wait: loading tickets....", true);
     	final Handler handler = new Handler() 
     	{
     		public void handleMessage(Message msg) 
@@ -180,5 +186,16 @@ public class TicketLanding extends Activity
     	TicketIntent.putExtra("sessionid", API.SessionID);
     	TicketIntent.putExtra("ticketID", TicketID);
     	TicketLanding.this.startActivity(TicketIntent);
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+	    switch (item.getItemId()) {
+	        case android.R.id.home:
+	        	finish();
+	            return(true);
+	    }
+
+	    return(super.onOptionsItemSelected(item));
 	}
 }
