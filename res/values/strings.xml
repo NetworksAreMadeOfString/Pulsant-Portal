@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="hello">Hello World, LoginLanding!</string>
+    <string name="hello">Hello</string>
     <string name="app_name">PulsantPortal</string>
 
     <string name="cdn_holding">Pulsant have removed support for CDN status in the API and no other managed networks products are exposed through the API.\n\n
